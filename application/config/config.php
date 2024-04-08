@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //$protocol = ( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ) ? 'https' : 'http';
 
 // $config['base_url'] = 'https://pipit.myiios.net/MYIIOS_DEVEL/';
-$config['base_url'] = 'http://localhost/Waskito_learning/';
+$config['base_url'] = 'http://localhost/nurmaniyah_learning/';
 
 /*
 |--------------------------------------------------------------------------
