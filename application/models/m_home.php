@@ -52,4 +52,21 @@
 
       return $num_rows;
     }
+
+    public function countDataSiswa()
+    {
+      $sql ="SELECT * FROM tbl_data_siswa";
+      $num_rows = $this->db->query($sql)->num_rows();
+
+      return $num_rows;
+    }
+
+
+    public function countDataMateri()
+    {
+      $sql ="SELECT * FROM tbl_modul_materi";
+      $num_rows = $this->db->query($sql)->num_rows();
+
+      return $num_rows;
+    }
 }

@@ -337,7 +337,7 @@ textarea {
               </div>
 
               <hr>
-            <div class="panel-body panel-notif" style='color: black'>
+            <div class="panel-body panel-notif" style='color: white'>
               
                <section class="content" style='color:white'>
                     <div class="container-fluid">
@@ -349,7 +349,7 @@ textarea {
                           <div class="small-box bg-info" style="border-radius: 5px;">
                             <div class="inner">
                               <br>
-                              <h3><?php echo $data_guru;?></h3>
+                              <h3><a style="color:white;" target="_blank" href="<?php echo site_url('data_guru');?>"><?php echo $data_guru;?></a></h3>
 
                               <p>Data Guru</p>
                               <br>
@@ -363,8 +363,7 @@ textarea {
                           <div class="small-box bg-success" style="border-radius: 5px;">
                             <div class="inner">
                               <br>
-                              <h3>150</h3>
-
+                              <h3><a style="color:white;" target="_blank" href="<?php echo site_url('data_siswa');?>"><?php echo $data_siswa;?></a></h3>
                               <p>Data Siswa</p>
                               <br>
                             </div>
@@ -377,8 +376,7 @@ textarea {
                           <div class="small-box bg-warning" style="border-radius: 5px;">
                             <div class="inner">
                               <br>
-                              <h3>150</h3>
-
+                              <h3><a style="color:white;" target="_blank" href="<?php echo site_url('data_materi');?>"><?php echo $data_materi;?></a></h3>
                               <p>Data Materi</p>
                               <br>
                             </div>
@@ -393,7 +391,7 @@ textarea {
                               <br>
                               <h3>150</h3>
 
-                              <p>Data Quis Ongoing</p>
+                              <p>Data Quiz Ongoing</p>
                               <br>
                             </div>
                           </div>

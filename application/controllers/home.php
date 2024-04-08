@@ -21,6 +21,8 @@ class Home extends CI_Controller {
 	{	
 		$data['notification'] = $this->mhome->getNotification();
 		$data['data_guru']    = $this->mhome->countDataGuru();
+		$data['data_siswa']   = $this->mhome->countDataSiswa();
+		$data['data_materi']    = $this->mhome->countDataMateri();
 
 		
 		$data['view'] = 'content/content_home';

@@ -199,7 +199,7 @@ $user = $this->session->userdata('myuser');
                    
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="javascript:;"> Profile</a>
+                    <a class="dropdown-item"  href="<?php echo site_url('profile_user');?>"> Profile</a>
                     <a class="dropdown-item"  href="<?php echo site_url('home/logout');?>" onclick="return confirm_logout()"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </div>
                 </li>
