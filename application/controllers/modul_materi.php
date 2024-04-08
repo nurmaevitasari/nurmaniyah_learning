@@ -98,5 +98,11 @@ class Modul_materi extends CI_Controller {
 		redirect('modul_materi/details/'.$id);
 	}
 
+	public function update_isi_materi($id)
+	{
+		$this->dtmateri->update_isi_materi($id);
+		redirect('modul_materi/details/'.$id);
+	}
+
 	
 }

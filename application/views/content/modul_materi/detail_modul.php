@@ -10,6 +10,8 @@
 <link href="<?php echo site_url('assets/css/font-awesome/css/font-awesome.min.css');?>" rel="stylesheet">
 
 
+
+
 <style type="text/css">
 	.scroll2
 	{
@@ -190,13 +192,50 @@
         </div>
 
         <br><br><br>
-        <h3>Isi Materi <button class='btn btn-primary btn-sm pull-right'><span class="glyphicon glyphicon-pencil"></span> Update Materi</button></h3>
+        <h3>Isi Materi 
+
+        <button class='btn btn-primary btn-sm pull-right' data-toggle="modal" data-target="#updateMateri" ><span class="glyphicon glyphicon-pencil"></span> Update Materi</button></h3>
+
         <div style="border:solid 1px #ccc; padding:10px; height:400px; overflow:auto; color:black;">
         	<?php echo $text['materi'];?>
         </div>
 
 
 </div>
+
+
+<!-- MODAL -->
+
+
+<!-- MODAL -->
+<div id="updateMateri" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Update Materi</h4>
+      </div>
+      <div class="modal-body">
+        <form id="AddFile" action="<?php echo site_url('modul_materi/update_isi_materi/'.$detail['id']);?>" method="post" enctype="multipart/form-data">
+        
+
+        <div class="form-group">
+            <textarea class="form-control" name="materi"><?php echo $text['materi'];?></textarea>
+        </div>
+   
+      </div>
+      
+      <div class="modal-footer">
+        <button type="submit" id="AddFilesButton" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-default" style='background-color: #CBCBCC;' data-dismiss="modal">Close</button>
+         </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 
 <script type="text/javascript">
 	
@@ -215,5 +254,26 @@
 			
 		}
 	});
+
+
+
+
+    CKEDITOR.replaceAll( function(textarea, config) {
+      
+      if (textarea.className == "personalnotes") {
+        config.customConfig = '<?php echo base_url('plugins/ckeditor/custom_config_notepad2.js')?>',
+        config.height = 600,
+        config.enterMode = CKEDITOR.ENTER_BR,
+        config.shiftEnterMode = CKEDITOR.ENTER_P
+      }else{  //console.log(textarea.className);
+        
+        config.customConfig = '<?php echo base_url('plugins/ckeditor/custom_config_notepad2.js')?>',
+        config.height = 200,
+        config.enterMode = CKEDITOR.ENTER_BR,
+        config.shiftEnterMode = CKEDITOR.ENTER_P
+      }
+    });
+
+
 
 </script>

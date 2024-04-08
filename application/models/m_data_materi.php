@@ -179,5 +179,18 @@ class M_data_materi extends CI_Model
         return $id;
     }
 
+    public function update_isi_materi($id)
+    {   
+        $materi = $this->input->post('materi');
+
+        $update = array(
+            'materi' => $materi,
+        );
+        $this->db->where('materi_id',$id);
+        $this->db->update('tbl_modul_materi_detail',$update);
+
+        return $id;
+    }
+
 }
 
