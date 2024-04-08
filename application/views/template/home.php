@@ -138,9 +138,10 @@ $user = $this->session->userdata('myuser');
                     </ul>
                   </li>
 
-                  <li><a><i class="fa fa-list"></i>Modul Materi<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-list"></i>Quiz Dan Latihan Soal<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo site_url('latihan_soal');?>">Latihan Soal</a></li>
+                      <li><a href="<?php echo site_url('Quiz');?>">Quiz</a></li>
                     </ul>
                   </li>
                  
