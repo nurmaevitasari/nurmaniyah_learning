@@ -1,0 +1,132 @@
+html, body {
+	padding:0;
+	margin:0;
+	color:#333;
+}
+
+#uploadWindow {
+	margin-top:50px;
+}	
+	
+.container-sm {
+	margin:0;
+}	
+
+.header {
+	position:fixed;
+	width:100%;
+	top:0;
+	display:block;
+	height:50px;
+	padding:8px 12px 12px 12px;
+	font-size:20px;
+	background-color:#384fa2;
+	color:#fff;
+	z-index:10;
+}
+
+.header .glyphicon {
+	font-size:18px;
+	padding-top:6px;
+}
+
+
+.header a {
+	color:#fff;
+}	
+
+
+.page-title {
+	background-color:#f3f3f3;
+	border-bottom:solid 1px #eee;
+	padding:15px;
+	position:fixed;
+	width:100%;
+	top:50px;
+	font-size:18px;
+	margin-bottom:5px;
+	z-index:10;
+}	
+.content {
+	padding:5px;
+	margin-top:110px;
+	overflow:auto;
+	height:auto;
+	z-index:1;
+}
+
+#myFriend {
+	list-style:none;
+	margin:0;
+	margin-top:10px;
+	padding:0;
+	overflow:auto;
+}
+
+.content li {
+	padding:12px;
+	border-bottom:solid 1px #eee;
+}
+
+
+.chatlist {
+	border-bottom:solid 1px #eee;
+	padding:12px;
+	color:#333;
+}
+
+.chatlist .excerpt {
+	color:#777;
+	font-size:13px;
+}	
+
+.chatlist:hover {
+	color:#555;
+	background-color:#f8f8f8;
+}	
+
+.chatlist .col-xs-8 {
+	padding-left:0;
+}	
+
+.writer {
+	position:fixed;
+	bottom:0;
+	height:65px;  
+	display:block;
+	width:100%;
+	padding:10px;
+}	
+
+.conversationlist {
+	padding:10px;
+	margin-bottom:65px;
+	overflow-x:hidden;
+}	
+
+.sender-msg {
+	display:inline-block;
+	width:80%;
+	padding:5px;
+	background-color:#fff;
+	border:solid 1px #ccc;
+	border-radius:3px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.my-msg {
+	display:inline-block;
+	width:80%;
+	padding:5px;
+	background-color:#eee;
+	border:solid 1px #ccc;
+	border-radius:3px;
+	margin-top:5px;
+	margin-bottom:5px;
+}	
+
+.send-date {
+	font-size:10px;
+	color:#888;
+}	

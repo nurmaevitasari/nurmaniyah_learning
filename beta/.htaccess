@@ -1,0 +1,11 @@
+Order Deny,Allow
+Deny from all
+Allow from 103.78.9.54
+Allow from 202.158.11.42
+Allow from 202.158.11.43
+Allow from 202.158.11.44
+Allow from 202.158.11.45
+Allow from 202.158.11.46
+Allow from 118.136.43.114
+Allow from 111.95.175.91
+Allow from 111.94.194.121
