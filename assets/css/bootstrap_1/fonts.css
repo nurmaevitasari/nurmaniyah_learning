@@ -1,0 +1,51 @@
+@import url(https://fonts.googleapis.com/css?family=Rubik:400,700,700italic,400italic);
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,400italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Rajdhani:400,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+@font-face {
+	font-family: 'Adam CG Pro';
+	src: url('../fonts/adam.eot');
+	src: local('Adam CG Pro'), local('Adam CG Pro'), 
+	url('../fonts/adam.ttf') format('truetype'),
+	url('../fonts/adam.woff') format('woff'),
+	url('../fonts/adam.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/adam.svg#svgFontName') format('svg')
+	;
+}
+
+
+@font-face {
+	font-family: 'Oxide';
+	src: url('../fonts/oxide.eot');
+	src: local('Breuer Bold'), local('Breuer Bold'), 
+	url('../fonts/BreuerText-Bold.ttf') format('truetype'),
+	url('../fonts/oxide.woff') format('woff'),
+	url('../fonts/oxide.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/oxide.svg#svgFontName') format('svg')
+	;
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Oxide';
+	src: url('../fonts/oxide.eot');
+	src: local('Breuer Italic'), local('Breuer Italic'), 
+	url('../fonts/BreuerText-RegularItalic.ttf') format('truetype'),
+	url('../fonts/oxide.woff') format('woff'),
+	url('../fonts/oxide.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/oxide.svg#svgFontName') format('svg')
+	;
+	font-weight: italic;
+}
+
+@font-face {
+	font-family: 'Oxide';
+	src: url('../fonts/oxide.eot');
+	src: local('Breuer'), local('Breuer'), 
+	url('../fonts/BreuerText-Regular.ttf') format('truetype'),
+	url('../fonts/oxide.woff') format('woff'),
+	url('../fonts/oxide.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/oxide.svg#svgFontName') format('svg')
+	;
+}

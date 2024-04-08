@@ -1,0 +1,54 @@
+#!/bin/sh
+
+/usr/bin/rsync -az -e ssh /home/www/application/controllers/  webindotara@172.16.0.3:/home/www/application/controllers/
+/usr/bin/rsync -az -e ssh /home/www/application/core/  webindotara@172.16.0.3:/home/www/application/core/
+/usr/bin/rsync -az -e ssh /home/www/application/helpers/  webindotara@172.16.0.3:/home/www/application/helpers/
+/usr/bin/rsync -az -e ssh /home/www/application/hooks/  webindotara@172.16.0.3:/home/www/application/hooks/
+/usr/bin/rsync -az -e ssh /home/www/application/libraries/  webindotara@172.16.0.3:/home/www/application/libraries/
+/usr/bin/rsync -az -e ssh /home/www/application/models/  webindotara@172.16.0.3:/home/www/application/models/
+/usr/bin/rsync -az -e ssh /home/www/application/views/  webindotara@172.16.0.3:/home/www/application/views/
+/usr/bin/rsync -az -e ssh /home/www/application/user_guide/  webindotara@172.16.0.3:/home/www/application/user_guide/
+/usr/bin/rsync -az -e ssh /home/www/application/third_party/  webindotara@172.16.0.3:/home/www/application/third_party/
+/usr/bin/rsync -az -e ssh /home/www/assets/  webindotara@172.16.0.3:/home/www/assets/
+/usr/bin/rsync -az -e ssh /home/www/plugins/  webindotara@172.16.0.3:/home/www/plugins/
+/usr/bin/rsync -az -e ssh /home/www/crontab/  webindotara@172.16.0.3:/home/www/crontab/
+
+
+/usr/bin/rsync -az -e ssh /home/www/application/controllers/  webindotara@172.16.0.4:/home/www/application/controllers/
+/usr/bin/rsync -az -e ssh /home/www/application/core/  webindotara@172.16.0.4:/home/www/application/core/
+/usr/bin/rsync -az -e ssh /home/www/application/helpers/  webindotara@172.16.0.4:/home/www/application/helpers/
+/usr/bin/rsync -az -e ssh /home/www/application/hooks/  webindotara@172.16.0.4:/home/www/application/hooks/
+/usr/bin/rsync -az -e ssh /home/www/application/libraries/  webindotara@172.16.0.4:/home/www/application/libraries/
+/usr/bin/rsync -az -e ssh /home/www/application/models/  webindotara@172.16.0.4:/home/www/application/models/
+/usr/bin/rsync -az -e ssh /home/www/application/views/  webindotara@172.16.0.4:/home/www/application/views/
+/usr/bin/rsync -az -e ssh /home/www/application/user_guide/  webindotara@172.16.0.4:/home/www/application/user_guide/
+/usr/bin/rsync -az -e ssh /home/www/application/third_party/  webindotara@172.16.0.4:/home/www/application/third_party/
+/usr/bin/rsync -az -e ssh /home/www/assets/  webindotara@172.16.0.4:/home/www/assets/
+/usr/bin/rsync -az -e ssh /home/www/plugins/  webindotara@172.16.0.4:/home/www/plugins/
+/usr/bin/rsync -az -e ssh /home/www/crontab/  webindotara@172.16.0.4:/home/www/crontab/
+
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/application/controllers/  webindotara@47.89.242.89:/home/www/application/controllers/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/application/core/  webindotara@47.89.242.89:/home/www/application/core/
+/usr/bin/rsync -az -e "ssh -p 30022"  /home/www/application/helpers/  webindotara@47.89.242.89:/home/www/application/helpers/
+/usr/bin/rsync -az -e "ssh -p 30022"  /home/www/application/hooks/  webindotara@47.89.242.89:/home/www/application/hooks/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/application/libraries/  webindotara@47.89.242.89:/home/www/application/libraries/
+/usr/bin/rsync -az -e "ssh -p 30022"  /home/www/application/models/  webindotara@47.89.242.89:/home/www/application/models/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/application/views/  webindotara@47.89.242.89:/home/www/application/views/
+/usr/bin/rsync -az -e "ssh -p 30022"  /home/www/application/user_guide/  webindotara@47.89.242.89:/home/www/application/user_guide/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/application/third_party/  webindotara@47.89.242.89:/home/www/application/third_party/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/assets/  webindotara@47.89.242.89:/home/www/assets/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/plugins/  webindotara@47.89.242.89:/home/www/plugins/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/crontab/  webindotara@47.89.242.89:/home/www/crontab/
+
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/application/controllers/  wwwtest@47.89.242.89:/home/wwwtest/application/controllers/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/application/core/  wwwtest@47.89.242.89:/home/wwwtest/application/core/
+/usr/bin/rsync -az -e "ssh -p 30022"  /home/www/application/helpers/  wwwtest@47.89.242.89:/home/wwwtest/application/helpers/
+/usr/bin/rsync -az -e "ssh -p 30022"  /home/www/application/hooks/  wwwtest@47.89.242.89:/home/wwwtest/application/hooks/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/application/libraries/  wwwtest@47.89.242.89:/home/wwwtest/application/libraries/
+/usr/bin/rsync -az -e "ssh -p 30022"  /home/www/application/models/  wwwtest@47.89.242.89:/home/wwwtest/application/models/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/application/views/  wwwtest@47.89.242.89:/home/wwwtest/application/views/
+/usr/bin/rsync -az -e "ssh -p 30022"  /home/www/application/user_guide/  wwwtest@47.89.242.89:/home/wwwtest/application/user_guide/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/application/third_party/  wwwtest@47.89.242.89:/home/wwwtest/application/third_party/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/assets/  wwwtest@47.89.242.89:/home/wwwtest/assets/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/plugins/  wwwtest@47.89.242.89:/home/wwwtest/plugins/
+/usr/bin/rsync -az -e "ssh -p 30022" /home/www/crontab/  wwwtest@47.89.242.89:/home/wwwtest/crontab/
