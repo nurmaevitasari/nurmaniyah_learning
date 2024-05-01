@@ -69,4 +69,14 @@
 
       return $num_rows;
     }
+
+
+    public function countDataQuiz()
+    {
+      $sql ="SELECT * FROM tbl_quiz WHERE status='OnGoing'";
+      $num_rows = $this->db->query($sql)->num_rows();
+
+      return $num_rows;
+    }
+
 }

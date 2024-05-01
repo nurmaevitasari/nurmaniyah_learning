@@ -140,7 +140,6 @@ $user = $this->session->userdata('myuser');
 
                   <li><a><i class="fa fa-list"></i>Quiz Dan Latihan Soal<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?php echo site_url('latihan_soal');?>">Latihan Soal</a></li>
                       <li><a href="<?php echo site_url('Quiz');?>">Quiz</a></li>
                     </ul>
                   </li>
@@ -308,7 +307,7 @@ $user = $this->session->userdata('myuser');
     <!-- gauge.js -->
     <script src="<?php echo site_url('assets/css/gauge.js/dist/gauge.min.js');?>"></script>
     <!-- bootstrap-progressbar -->
-    <script src="<?php echo ('assets/css/bootstrap-progressbar/bootstrap-progressbar.min.js');?>"></script>
+    <script src="<?php //echo ('assets/css/bootstrap-progressbar/bootstrap-progressbar.min.js');?>"></script>
     <!-- iCheck -->
     <script src="<?php echo site_url('assets/css/iCheck/icheck.min.js');?>"></script>
     <!-- Skycons -->

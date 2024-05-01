@@ -23,6 +23,7 @@ class Home extends CI_Controller {
 		$data['data_guru']    = $this->mhome->countDataGuru();
 		$data['data_siswa']   = $this->mhome->countDataSiswa();
 		$data['data_materi']    = $this->mhome->countDataMateri();
+		$data['data_quiz']    = $this->mhome->countDataQuiz();
 
 		
 		$data['view'] = 'content/content_home';

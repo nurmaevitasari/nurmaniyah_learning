@@ -231,6 +231,7 @@ class C_loginuser extends CI_Controller {
 			$password = sha1(md5($password1));
 
 
+
 			$this->form_validation->set_rules('username', 'Username', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 
