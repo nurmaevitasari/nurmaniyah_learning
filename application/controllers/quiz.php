@@ -121,4 +121,39 @@ class Quiz extends CI_Controller {
 		$this->load->view('template/home',$data);
 	}
 
+	public function edit($id)
+	{
+
+		$data['notification'] = $this->mhome->getNotification();
+
+		$data['dtquiz'] = $this->dtquiz;
+		
+		$data['detail'] =$this->dtquiz->getDetail($id);
+		$data['soal'] =$this->dtquiz->getSoal($id);
+
+
+		$data['view'] = 'content/quiz/edit_quiz';
+		$data['mhome'] = $this->mhome;
+		$this->load->view('template/home',$data);
+	}
+
+	public function detail_satuan($id)
+	{
+		$id_soal = $this->input->post('id');
+
+		$sql ="SELECT * FROM tbl_quiz_soal WHERE id ='$id_soal'";
+		$detail_soal = $this->db->query($sql)->row_array();
+
+		$jawaban = $this->dtquiz->getJawaban($id,$id_soal);
+
+
+		$data = array(
+			'detail_soal' => $detail_soal,
+			'jawaban' => $jawaban,
+		);
+
+
+		echo json_encode($data);
+	}
+
 }

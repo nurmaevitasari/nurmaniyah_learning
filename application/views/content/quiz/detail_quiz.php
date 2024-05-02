@@ -79,7 +79,8 @@ else
 
         <h4>Soal & Jawaban</h4>
         <span style='font-size:9px;'>*Jawaban Benar ditandai dengan warna biru di text</span>
-        <button class='btn btn-warning btn-sm pull-right'>Edit</button>
+        
+
         <br><br>
 
         <?php 
@@ -87,7 +88,15 @@ else
         foreach ($soal as $key => $value) 
         {?>
 
-            <span><?php echo ($key+1).".".$value['soal'];?><br></span>
+            <span><?php echo ($key+1).".".$value['soal'];?>
+            
+
+            <a title='Delete' data-toggle="modal" data-target="#myModalDelete" class='btn btn-danger btn-sm pull-right' style='color: white;'><span class="glyphicon glyphicon-trash"></span></a>
+
+            <a title='Update'data-toggle="modal" data-target="#myModalEdit" class='btn btn-warning btn-sm pull-right edit_soal' style='color: black;' data-id="<?php echo $value['id'];?>" ><span class="glyphicon glyphicon-pencil"></span></a>
+
+
+            <br></span>
 
             <?php 
 
@@ -117,11 +126,118 @@ else
 
             ?>
             <br><br>
+
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray"> 
             
         <?php }?>
     </div>
 
-
-
-
 </div>
+
+<!-- modal -->
+
+<div class="modal fade" id="myModalEdit" role="dialog">
+    <div class="modal-dialog modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h4 class="modal-title">Edit Soal</h4>
+        </div>
+        <div class="modal-body">
+        <form id="AddMessage" action="<?php echo site_url('quiz/edit_soal/'.$detail['id']); ?>" method="post" enctype="multipart/form-data">
+
+          <span id="form_soal">
+
+
+            <div class="form-group file-row-soal" id="file-row-soal-1">
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-2">Soal</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control soal"  name="soal" >
+                        </div>
+                        
+                </div> 
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-2">Jawaban</label>
+                       
+                    <div class="col-sm-2">
+                            <b>A.</b> <input type="text" class="form-control"  name="jawaban_a[]" >
+                            <input type="checkbox" name="jawab[]" value="A">Jadikan Jawaban
+                            <br>
+                    </div>
+
+                    <div class="col-sm-2">
+                            <b>B.</b> <input type="text" class="form-control"  name="jawaban_b[]" >
+                            <input type="checkbox"  name="jawab[]" value="B">Jadikan Jawaban
+                            <br>
+
+                    </div>
+
+                    <div class="col-sm-2">
+                            <b>C.</b> <input type="text" class="form-control"  name="jawaban_c[]" >
+                            <input type="checkbox"  name="jawab[]" value="C">Jadikan Jawaban
+                            <br>
+                    </div>
+
+                    <div class="col-sm-2">
+                            <b>D.</b> <input type="text" class="form-control"  name="jawaban_d[]" >
+                             <input type="checkbox"  name="jawab[]" value="D">Jadikan Jawaban
+                            <br>
+
+                    </div>
+
+                </div> 
+
+                <input type="hidden" name="id_soal" id="id_soal">
+            </div>
+
+          </span>
+
+
+        </div>
+        <div class="modal-footer">
+
+            <button type="submit" id="AddMessageButton" class="btn btn-primary btn-sm">Update</button>
+            <button type="button" class="btn btn-default btn-sm" style="background-color: #A4A2A2;" data-dismiss="modal">Close</button>
+        </div>
+        </form>
+      </div>
+      
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+      $('.edit_soal').click(function()
+      {
+            var id = $(this).data('id');
+
+            $('#id_soal').val(id);
+
+
+            $.ajax({
+                type : 'POST',
+                url : '<?php echo site_url('quiz/detail_satuan/'.$detail['id']); ?>',
+                data : {
+                        id : id,
+                },
+                dataType : 'json',
+                success : function (data){
+
+                   var detail_soal = data.detail_soal;
+                   $('.soal').val(detail_soal.soal);
+
+                },
+                error : function (xhr, status, error){
+                    console.log(xhr);
+                }
+            });
+
+
+      });
+
+  </script>
