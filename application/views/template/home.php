@@ -30,16 +30,20 @@ $user = $this->session->userdata('myuser');
     <link href="<?php echo site_url('assets/css/bootstrap-daterangepicker/daterangepicker.css');?>" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="<?php echo site_url('assets/css/css_custom/custom.min.css');?>" rel="stylesheet">
-
-	<script src="<?php echo base_url('assets/js/jquery-1.10.2.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
-	<script src="<?php echo base_url('assets/js/dataTables.bootstrap.min.js'); ?>"></script>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dataTables.bootstrap.min.css'); ?> ">
+   
+  	<script src="<?php echo base_url('assets/js/jquery-1.10.2.js'); ?>"></script>
+  	<script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
+  	<script src="<?php echo base_url('assets/js/dataTables.bootstrap.min.js'); ?>"></script>
+  	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dataTables.bootstrap.min.css'); ?> ">
 
  	<script src="<?php echo base_url('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js'); ?>"></script>
   	<script src="<?php echo base_url('assets/plugins/bootstrap-datetimepicker/moment.min.js'); ?>"></script>
 	<script src="<?php echo base_url('assets/plugins/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'); ?>"></script>
+
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/dataTables.bootstrap.min.css'); ?> ">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css'); ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/plugins/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css'); ?>">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 	
 	<script src="<?php echo base_url('plugins/ckeditor/ckeditor.js'); ?>"></script>
 
@@ -49,6 +53,19 @@ $user = $this->session->userdata('myuser');
 
 	<link href="<?php echo base_url('assets/plugins/select2/css/select2.min.css'); ?>" rel="stylesheet" />
 	<script src="<?php echo base_url('assets/plugins/select2/js/select2.min.js'); ?>"></script>
+
+  <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+    <!-- METISMENU SCRIPTS -->
+  <script src="<?php echo base_url('assets/js/jquery.metisMenu.js'); ?>"></script>
+    <!-- CUSTOM SCRIPTS -->
+  <script src="<?php echo base_url('assets/js/custom.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/plugins/select2/js/select2.min.js'); ?>"></script>
+
+  <link href="<?php echo site_url('assets/css/css_custom/custom.min.css');?>" rel="stylesheet">
+
+
+  <link href="<?php echo site_url('assets/css/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css');?>" rel="stylesheet">
+
 
   </head>
 
@@ -103,11 +120,11 @@ $user = $this->session->userdata('myuser');
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3>General</h3>
+                <h3><?php echo $_SESSION['myuser']['role'];?></h3>
                 <ul class="nav side-menu">
 
                 	<li>
-                		<a><i class="fa fa-calendar"></i><?php echo date('l, m-Y H:i');?></a>
+                		<a><i class="fa fa-calendar"></i> <?php echo date('l, m-Y')." ";?> <span id="clock"></span></a>
                     
                   	</li>
 
@@ -138,7 +155,7 @@ $user = $this->session->userdata('myuser');
                     </ul>
                   </li>
 
-                  <li><a><i class="fa fa-list"></i>Quiz Dan Latihan Soal<span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-list"></i>Quiz<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?php echo site_url('Quiz');?>">Quiz</a></li>
                     </ul>
@@ -204,7 +221,7 @@ $user = $this->session->userdata('myuser');
                   </div>
                 </li>
 
-                <li role="presentation" class="nav-item dropdown open">
+                <!-- <li role="presentation" class="nav-item dropdown open">
                   <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
                     <i class="fa fa-envelope-o"></i>
 
@@ -265,7 +282,7 @@ $user = $this->session->userdata('myuser');
                       </div>
                     </li>
                   </ul>
-                </li>
+                </li> -->
               </ul>
             </nav>
           </div>
@@ -307,7 +324,7 @@ $user = $this->session->userdata('myuser');
     <!-- gauge.js -->
     <script src="<?php echo site_url('assets/css/gauge.js/dist/gauge.min.js');?>"></script>
     <!-- bootstrap-progressbar -->
-    <script src="<?php //echo ('assets/css/bootstrap-progressbar/bootstrap-progressbar.min.js');?>"></script>
+    <script src="<?php echo site_url('assets/css/bootstrap-progressbar/bootstrap-progressbar.min.js');?>"></script>
     <!-- iCheck -->
     <script src="<?php echo site_url('assets/css/iCheck/icheck.min.js');?>"></script>
     <!-- Skycons -->
@@ -335,6 +352,11 @@ $user = $this->session->userdata('myuser');
     <!-- Custom Theme Scripts -->
     <script src="<?php echo site_url('assets/js/custom_js/custom.min.js');?>"></script>
 
+    <script src="<?php echo base_url("assets/plugins/highcharts/highcharts.js"); ?>"></script>
+    <script src="<?php echo base_url("assets/plugins/highcharts/modules/exporting.js"); ?>"></script>
+    
+
+
 
   </body>
 </html>
@@ -346,4 +368,36 @@ $user = $this->session->userdata('myuser');
 	{
 		return confirm('Apa Anda Yakin akan Logout ?');
 	}
+
+  $(document).ready(function(){
+   setInterval('updateClock()', 1000);
+});
+
+function updateClock ()
+{
+  var currentTime = new Date ( );
+    var currentHours = currentTime.getHours ( );
+    var currentMinutes = currentTime.getMinutes ( );
+    var currentSeconds = currentTime.getSeconds ( );
+
+    // Pad the minutes and seconds with leading zeros, if required
+    currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+    currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+
+    // Choose either "AM" or "PM" as appropriate
+    var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+
+    // Convert the hours component to 12-hour format if needed
+    currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+
+    // Convert an hours component of "0" to "12"
+    currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+
+    // Compose the string for display
+    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+    
+    
+    $("#clock").html(currentTimeString);      
+ }
+
 </script>

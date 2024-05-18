@@ -11,11 +11,6 @@ class Profile_user extends CI_Controller {
 		
 		$this->load->model('M_home', 'mhome');
 		$this->load->model('m_profile', 'profile');
-		if(!isset($user) or empty($user))
-		{
-			redirect('c_loginuser');
-		}
-	
 	}
 
 
@@ -24,6 +19,7 @@ class Profile_user extends CI_Controller {
 	{
 		$data['notification'] = $this->mhome->getNotification();
 
+		
 		$data['view'] = 'content/profile_user/index';
 		$data['mhome'] = $this->mhome;
 		$this->load->view('template/home',$data);

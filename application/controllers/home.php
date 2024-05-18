@@ -25,11 +25,17 @@ class Home extends CI_Controller {
 		$data['data_materi']    = $this->mhome->countDataMateri();
 		$data['data_quiz']    = $this->mhome->countDataQuiz();
 
-		
+		$data['array_periode'] = $this->mhome->getArrayPeriode();
+		$data['jumlah_quiz']   = $this->mhome->jumlah_quiz();
+		$data['jumlah_quiz_created']   = $this->mhome->jumlah_quiz_created();
+
+
 		$data['view'] = 'content/content_home';
 		$data['mhome'] = $this->mhome;
 		$this->load->view('template/home',$data);
 	}
+
+
 
 	public function loadhistory()
 	{
@@ -609,21 +615,50 @@ class Home extends CI_Controller {
 
 
     public function buka_notif($id)
-    {
+    {	
 
-    	$sql ="SELECT * FROM tbl_notification WHERE id='$id'";
-    	$data = $this->db->query($sql)->row_array();
-
-    	$url = $data['url'];
-    	$modul = $data['modul'];
-    	$modul_id = $data['modul_id'];
+    	
+        $role = $_SESSION['myuser']['role'];
 
 
-		$time = date('Y-m-d H:i:s');
-		$user = $_SESSION['myuser']['karyawan_id'];
+        if($role =='Admin')
+        {
+	        $sql ="SELECT * FROM tbl_notification_admin WHERE id='$id'";
+	        $data = $this->db->query($sql)->row_array(); 
 
-		$sql = "UPDATE tbl_notification SET status = 1, date_open = '$time' WHERE modul='$modul' AND modul_id='$modul_id' AND user_id = '$user' AND status = '0'";
-		$this->db->query($sql);
+
+	    	$url = $data['url'];
+
+	    	$sql = "UPDATE tbl_notification_admin SET status = 1 WHERE  id ='$id'";
+			$this->db->query($sql);
+
+        }
+
+        if($role =='Guru')
+        {
+
+	        $sql ="SELECT * FROM tbl_notification_guru WHERE id='$id'";
+	        $data = $this->db->query($sql)->row_array();
+
+	        $url = $data['url'];
+
+	        $sql = "UPDATE tbl_notification_guru SET status = 1 WHERE  id ='$id'";
+			$this->db->query($sql);
+
+        }
+
+
+        if($role =='Siswa')
+        {
+
+	        $sql ="SELECT * FROM tbl_notification WHERE id='$id'";
+	        $data = $this->db->query($sql)->row_array();
+	        $url = $data['url'];
+
+	        $sql = "UPDATE tbl_notification SET status = 1 WHERE  id ='$id'";
+			$this->db->query($sql);
+        }
+
 
 		redirect($url);
 

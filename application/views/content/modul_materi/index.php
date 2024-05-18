@@ -12,8 +12,13 @@
         </div>
         <hr />
 
-        <a class="btn btn-sm btn-primary pull-right" href="<?php echo site_url('modul_materi/add_modul');?>">+ Materi</a>
-        <br><br><br><br>
+        <?php 
+
+        if($_SESSION['myuser']['role'] !='Siswa')
+        {?>
+          <a class="btn btn-sm btn-primary pull-right" href="<?php echo site_url('modul_materi/add_modul');?>">+ Materi</a>
+          <br><br><br><br>
+        <?php }?>
 
         <div class="table-responsive">
             <table id="table_guru" class="table table-hover " style="font-size: 13px">
@@ -22,9 +27,14 @@
                   <th>No.</th>
             	    <th>Kode Modul</th>
             	    <th>Kelas</th>
-            	    <th>Date Created</th>
-                  <th>User Created</th>
-                  <th>Status</th>
+                  <?php 
+                  if($_SESSION['myuser']['role'] !='Siswa')
+                  {?>
+
+              	    <th>Date Created</th>
+                    <th>User Created</th>
+                    <th>Status</th>
+                  <?php }?>
             	    <th>Action</th>
               </tr>
             </thead>
@@ -43,9 +53,13 @@
                     <td><?php echo $no++;?></td>
                     <td><?php echo $row['kode_modul'];?></td>
                     <td><?php echo $row['kelas'];?></td>
-                    <td><?php echo date('d-m-Y H:i:s',strtotime($row['date_created']));?></td>
-                    <td><?php echo $row['username'];?></td>
-                    <td><?php echo $row['status'];?></td>
+                    <?php 
+                    if($_SESSION['myuser']['role'] !='Siswa')
+                    {?>
+                      <td><?php echo date('d-m-Y H:i:s',strtotime($row['date_created']));?></td>
+                      <td><?php echo $row['username'];?></td>
+                      <td><?php echo $row['status'];?></td>
+                    <?php }?>
                     <td><a target="_blank" class='btn btn-primary btn-sm' href="<?php echo site_url('modul_materi/details/'.$row['id']);?>">Details</a></td>
                   </tr>
 

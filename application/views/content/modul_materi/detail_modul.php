@@ -46,10 +46,13 @@
 			   <div class="col-md-12 row">
 
 			   	<div class='col-sm-6'>
-				   	<button class='btn btn-default btn-sm' style='background-color: grey;'> <span class="glyphicon glyphicon-step-backward"></span>Back</button> 
+				   	<a href="<?php echo site_url('modul_materi');?>" class='btn btn-default btn-sm' style='background-color: grey;'> <span class="glyphicon glyphicon-step-backward"></span>Back</a> 
 					<h1>Detail Materi</h1>
 				</div>
 
+				 <?php 
+        if($_SESSION['myuser']['role'] !='Siswa')
+        {?> 
 				<div class='col-sm-6'>
 
 					<a class='btn btn-warning btn-sm pull-right' href="<?php echo site_url('Modul_materi/edit/'.$detail['id']);?>"> <span class="glyphicon glyphicon-pencil"></span>Update</a>
@@ -67,6 +70,7 @@
 
 					<?php }?>
 				</div>
+				<?php }?>
 
           </div>
         </div>
@@ -80,41 +84,50 @@
 	        			<td><?php echo $detail['id'];?></td>
 	        		</tr>
 
-	        		<tr>
-	        			<th>Date Created</th>
-	        			<td><?php echo $detail['date_created'];?></td>
-	        		</tr>
+	        		<?php 
+			        if($_SESSION['myuser']['role'] !='Siswa')
+			        {?> 
+
+		        		<tr>
+		        			<th>Date Created</th>
+		        			<td><?php echo $detail['date_created'];?></td>
+		        		</tr>
+		        	<?php }?>
 
 	        		<tr>
 	        			<th>Kode Materi</th>
 	        			<td><?php echo $detail['kode_modul'];?></td>
 	        		</tr>
 
-	        		<tr>
-	        			<th>Nama Materi</th>
-	        			<td><?php echo $detail['nama_materi'];?></td>
-	        		</tr>
+	        		<?php 
+			        if($_SESSION['myuser']['role'] !='Siswa')
+			        {?> 
+		        		<tr>
+		        			<th>Nama Materi</th>
+		        			<td><?php echo $detail['nama_materi'];?></td>
+		        		</tr>
 
-	        		<tr>
-	        			<th>User Created</th>
-	        			<td><?php echo $detail['username'];?></td>
-	        		</tr>
+		        		<tr>
+		        			<th>User Created</th>
+		        			<td><?php echo $detail['username'];?></td>
+		        		</tr>
 
 
-	        		<tr>
-	        			<th>Status</th>
-	        			<td>
-	        				<?php 
+		        		<tr>
+		        			<th>Status</th>
+		        			<td>
+		        				<?php 
 
-	        				if($detail['status_modul']=='Active')
-	        				{
-	        					echo '<span class="badge-active">Active</span>';
-	        				}else
-	        				{
-	        					echo '<span class="badge-non-active">Non Active</span>';
-	        				}?>
-	        			</td>
-	        		</tr>
+		        				if($detail['status_modul']=='Active')
+		        				{
+		        					echo '<span class="badge-active">Active</span>';
+		        				}else
+		        				{
+		        					echo '<span class="badge-non-active">Non Active</span>';
+		        				}?>
+		        			</td>
+		        		</tr>
+		        	<?php }?>
 
 
 	        		<tr>
@@ -194,7 +207,12 @@
         <br><br><br>
         <h3>Isi Materi 
 
-        <button class='btn btn-primary btn-sm pull-right' data-toggle="modal" data-target="#updateMateri" ><span class="glyphicon glyphicon-pencil"></span> Update Materi</button></h3>
+        <?php 
+        if($_SESSION['myuser']['role'] !='Siswa')
+        {?> 
+
+		        <button class='btn btn-primary btn-sm pull-right' data-toggle="modal" data-target="#updateMateri" ><span class="glyphicon glyphicon-pencil"></span> Update Materi</button></h3>
+		     <?php }?>
 
         <div style="border:solid 1px #ccc; padding:10px; height:400px; overflow:auto; color:black;">
         	<?php echo $text['materi'];?>

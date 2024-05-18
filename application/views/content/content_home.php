@@ -2,12 +2,39 @@
 <?php $user = $this->session->userdata('myuser'); ?>
 <?php $file_url = $this->config->item('file_url');
 
+$jml_periode = count($array_periode);
+
 ?>
 
 <!-- Include Required Prerequisites -->
 <script type="text/javascript" src="<?php echo base_url('plugins/ckeditor/ckeditor.js'); ?>"></script>
 
 <style type="text/css">
+
+  .btn-custom {
+    -webkit-border-radius: 11;
+    -moz-border-radius: 11;
+    border-radius: 11px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 9px;
+    background: #829cad;
+    padding: 8px 10px 8px 10px;
+    text-decoration: none;
+  }
+
+  .btn-custom:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+  }
+
+
+
 
   .merah{
     color:red;
@@ -70,7 +97,12 @@
   .panel-notif
   {
     overflow: auto;
-    height: 825px;
+  }
+
+  .panel-notif-1
+  {
+    overflow: auto;
+    height: 300px;
   }
 
   .panel-norek {
@@ -290,7 +322,7 @@ textarea {
 {
     overflow: auto;
     width: auto;
-    height:300px;
+    height:800px;
 }
 
 .scroll3
@@ -326,6 +358,7 @@ textarea {
 <div id="page-inner">
 
 
+
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
@@ -337,13 +370,22 @@ textarea {
               </div>
 
               <hr>
-            <div class="panel-body panel-notif" style='color: white'>
-              
-               <section class="content" style='color:white'>
+
+              <div class="panel-body panel-notif" style='color: white'>
+                
+              <?php 
+
+              if($_SESSION['myuser']['role'] !='Siswa')
+              {?>
+
+                <section class="content" style='color:white'>
                     <div class="container-fluid">
                       <!-- Small boxes (Stat box) -->
                       <div class="row">
 
+                        <?php 
+
+                        if($_SESSION['myuser']['role'] =='Admin'){?>
                         <div class="col-lg-3 col-6">
                           <!-- small box -->
                           <div class="small-box bg-info" style="border-radius: 5px;">
@@ -356,7 +398,11 @@ textarea {
                             </div>
                           </div>
                         </div>
+                        <?php }?>
 
+                        <?php 
+
+                        if($_SESSION['myuser']['role'] =='Admin'){?>
 
                          <div class="col-lg-3 col-6">
                           <!-- small box -->
@@ -369,6 +415,7 @@ textarea {
                             </div>
                           </div>
                         </div>
+                        <?php }?>
 
 
                          <div class="col-lg-3 col-6">
@@ -406,12 +453,246 @@ textarea {
 
                     </div>
                 </section>
+              <?php }?>
 
-            </div>
+              </div>
+
+              <hr>
+              <div class="col-sm-12">
+                <div class="col-sm-6">
+
+                  <h3>NOTIFICATION</h3>
+                   <div class="panel-body panel-notes <?= (count($notification) >= '10') ? "scroll1" : ''; ?>" style="font-size:13px; border: 2px solid #B0B6C1; border-radius: 4px;">
+
+                    <br>
+
+                    <?php
+
+
+                      foreach ($notification as $key => $value) 
+                      { 
+                        
+                        $datetime = date('Y-m-d H:i:s');
+                        $diff    = datediff($value['date_created'],$datetime);
+
+                        $days_total = $diff['days_total'];
+                        $hours      = $diff['hours'];
+                        $minutes    = $diff['minutes'];
+                        $deconds    = $diff['seconds'];
+                        $color ="background-color:#b6d46e85;";
+                      ?>
+
+                       <div class="alert" style="<?php echo $color;?> font-size: 11px; margin-left: 8px; margin-right:8px;" >
+                        <?php echo date('d-m-Y h:i:s', strtotime($value['date_created'])) ?>  >> <?php echo $value['notification'];?>
+                        <a  target="_blank" href="<?php echo site_url('Home/buka_notif/'.$value['id']);?>" class="btn-custom pull-right updt">GO</a> 
+                        <br><br>
+                       </div>
+
+                    <?php }?>
+                    <br>
+
+                </div>
+
+                </div>
+                <div class="col-sm-6">
+                      
+                    <h3>Report</h3>
+                    <div class="panel-body panel-notes" style="font-size:13px; border: 2px solid #B0B6C1; border-radius: 4px;">
+
+                      <?php
+
+                      if($_SESSION['myuser']['role']=='Siswa')
+                      {?>
+
+                          <div class="row">
+                              <div class="col-md-12">
+                              <div id="chart_timeline1" style="width: 100%; height: 400px; margin: 0 auto"></div>
+                                </div>
+                          </div>
+
+
+                      <?php }?>
+
+
+                      <?php
+
+                      if($_SESSION['myuser']['role']=='Guru')
+                      {?>
+
+                          <div class="row">
+                              <div class="col-md-12">
+                              <div id="chart_timeline2" style="width: 100%; height: 400px; margin: 0 auto"></div>
+                                </div>
+                          </div>
+
+
+                      <?php }?>
+
+
+
+                    </div>
+                </div>
+              </div>
         </div>
     </div>
 
 
 </div>
+
+
+<?php 
+
+
+$date_min = date('Y-m-01');
+$date_max = date('Y-m-d');
+
+
+?>
+
+<script type="text/javascript">
+
+
+
+$(function () 
+{
+
+  $('#chart_timeline1').highcharts(
+  {
+            chart: {
+                type: 'spline'
+            },
+            title: {
+                text: 'Quiz Completed'
+            },
+            subtitle: {
+                text: '<?php echo date('F j, Y',strtotime($date_min)); ?> - <?php echo date('F j, Y',strtotime($date_max)); ?>'
+            },
+            colors: ['#5839CD', '#e74c3c', '#3D96AE', '#DB843D', '#3498db', '#f39c12', '#2ecc71', '#A47D7C', '#B5CA92'],
+            xAxis: {
+                categories: [<?php 
+          $a = 1; 
+          foreach ($array_periode as $index_periode => $nama_periode) 
+          {
+            echo "'".$nama_periode."'"; 
+          
+            if ($a < $jml_periode)
+            echo ",";
+            $a++; 
+          } 
+          ?>],
+                title: {
+                    text: null
+                },
+        labels: {
+          rotation: -45
+        }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Jumlah Quiz Completed',
+                    align: 'middle'
+                }
+            },
+            tooltip: {
+                valueSuffix: ' Quiz'
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+          name: 'Quiz Completed',
+          data: [<?php 
+          $a = 1;
+          foreach ($array_periode as $index_periode => $nama_periode)
+          { 
+            
+            if (isset($jumlah_quiz[$index_periode]))
+            $value = $jumlah_quiz[$index_periode];
+            else
+            $value = 0;
+            
+            echo $value; 
+            
+            if ($a < $jml_periode)
+            echo ",";
+            $a++;
+          }
+          ?>]
+      }]
+  });
+
+  $('#chart_timeline2').highcharts(
+  {
+            chart: {
+                type: 'spline'
+            },
+            title: {
+                text: 'Quiz Created'
+            },
+            subtitle: {
+                text: '<?php echo date('F j, Y',strtotime($date_min)); ?> - <?php echo date('F j, Y',strtotime($date_max)); ?>'
+            },
+            colors: ['#5839CD', '#e74c3c', '#3D96AE', '#DB843D', '#3498db', '#f39c12', '#2ecc71', '#A47D7C', '#B5CA92'],
+            xAxis: {
+                categories: [<?php 
+          $a = 1; 
+          foreach ($array_periode as $index_periode => $nama_periode) 
+          {
+            echo "'".$nama_periode."'"; 
+          
+            if ($a < $jml_periode)
+            echo ",";
+            $a++; 
+          } 
+          ?>],
+                title: {
+                    text: null
+                },
+        labels: {
+          rotation: -45
+        }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Total Quiz Created',
+                    align: 'middle'
+                }
+            },
+            tooltip: {
+                valueSuffix: ' Quiz'
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+          name: 'Quiz Completed',
+          data: [<?php 
+          $a = 1;
+          foreach ($array_periode as $index_periode => $nama_periode)
+          { 
+            
+            if (isset($jumlah_quiz_created[$index_periode]))
+            $value = $jumlah_quiz_created[$index_periode];
+            else
+            $value = 0;
+            
+            echo $value; 
+            
+            if ($a < $jml_periode)
+            echo ",";
+            $a++;
+          }
+          ?>]
+      }]
+  });
+
+});
+
+
+  
+
+</script>
 
 

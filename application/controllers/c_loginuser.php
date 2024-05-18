@@ -72,6 +72,7 @@ class C_loginuser extends CI_Controller {
 				$row =$this->db->query($sql)->num_rows();
 
 
+
 				if($row > 0)
 				{
 					$user 		   = $this->db->query($sql)->row_array();
@@ -117,14 +118,14 @@ class C_loginuser extends CI_Controller {
 				{
 					$data['error'] = 'Maaf Username atau Password Anda Salah';
 					$data['site_key'] = '6LdrNFoUAAAAAAFuxi7cNjC3xNAU67yfq97QbnNd';
-					$this->load->view('template/t_loginuser_teacher', $data);
+					$this->load->view('template/t_loginuser_student', $data);
 				}
 			}
 			else
 			{
 				$data['error'] = 'Maaf, gagal memverifikasi kode keamanan';
 				$data['site_key'] = '6LdrNFoUAAAAAAFuxi7cNjC3xNAU67yfq97QbnNd';
-				$this->load->view('template/t_loginuser_teacher', $data);
+				$this->load->view('template/t_loginuser_student', $data);
 			}
 		}
 	}
